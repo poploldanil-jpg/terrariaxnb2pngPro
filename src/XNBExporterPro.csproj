@@ -2,25 +2,31 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net472</TargetFramework>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <RootNamespace>XNBExporterPro</RootNamespace>
     <AssemblyName>XNBExporterPro</AssemblyName>
     <UseWindowsForms>true</UseWindowsForms>
     <LangVersion>latest</LangVersion>
-    <ApplicationIcon></ApplicationIcon>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+
+    <!-- Версия -->
     <AssemblyVersion>2.0.0.0</AssemblyVersion>
     <FileVersion>2.0.0.0</FileVersion>
+    <Version>2.0.0</Version>
     <Product>XNB Exporter Pro</Product>
-    <Description>Enhanced XNB to PNG/BMP/TGA Converter</Description>
-    <Copyright>2024</Copyright>
-  </PropertyGroup>
+    <Description>Enhanced XNB to PNG/BMP/TGA Converter. No XNA/MonoGame/DirectX required.</Description>
+    <Copyright>2024-2025</Copyright>
+    <Authors>XNBExporterPro</Authors>
 
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.IO.Compression" />
-    <Reference Include="System.Windows.Forms" />
-  </ItemGroup>
+    <!-- Публикация: один EXE файл -->
+    <PublishSingleFile>true</PublishSingleFile>
+    <SelfContained>true</SelfContained>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+
+    <!-- Иконка (опционально) -->
+    <!-- <ApplicationIcon>icon.ico</ApplicationIcon> -->
+  </PropertyGroup>
 
 </Project>

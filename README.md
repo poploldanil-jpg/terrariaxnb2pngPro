@@ -1,17 +1,10 @@
-the program was created using a neural network because the original program wouldn't run on my PC
-
-
-the rest was written by a neural network, I didn't read it myself, so feel free to spit on me
-
------ 
-
-
-
 # XNB Exporter Pro v2.0
 
 **Улучшенный конвертер XNB → PNG/BMP/TGA**
 
 Полностью автономное приложение — **НЕ требует** XNA Framework, MonoGame, DirectX или GPU.
+
+[![Build](https://github.com/YOUR_USERNAME/XNBExporterPro/actions/workflows/build.yml/badge.svg)](https://github.com/YOUR_USERNAME/XNBExporterPro/actions/workflows/build.yml)
 
 ---
 
@@ -26,32 +19,46 @@ the rest was written by a neural network, I didn't read it myself, so feel free 
 | Поверхностные форматы | Только Color | ✅ Color, DXT1, DXT3, DXT5, RGB565, BGRA5551, BGRA4444, Alpha8 |
 | Сжатые XNB | ❌ | ✅ LZX и LZ4 |
 | Командная строка | ❌ | ✅ CLI режим |
-| Зависимости | XNA + DirectX + GPU | ✅ Только .NET Framework |
+| Зависимости | XNA + DirectX + GPU | ✅ Только .NET |
 | Рекурсивный поиск | ❌ | ✅ По подпапкам |
 | Прогресс | ❌ | ✅ Полоса прогресса |
 | Тёмная тема | ❌ | ✅ Современный UI |
 
 ---
 
-## 📦 Сборка (Build)
+## 📥 Скачать EXE
 
-### Вариант 1: Visual Studio
-1. Откройте `XNBExporterPro.sln` в Visual Studio 2019/2022
-2. Установите целевой framework: .NET Framework 4.7.2
-3. Build → Build Solution (Ctrl+Shift+B)
-4. Результат: `src/bin/Release/XNBExporterPro.exe`
+1. Перейдите в **[Actions](../../actions)** → выберите последний успешный билд
+2. Скачайте артефакт **XNBExporterPro-win-x64**
+3. Или: перейдите в **[Releases](../../releases)** для стабильных версий
 
-### Вариант 2: Командная строка (Developer Command Prompt)
-```batch
-cd src
-build.bat
-```
+---
 
-### Вариант 3: dotnet CLI
+## 🔨 Сборка через GitHub (автоматически!)
+
+### Шаг 1: Создайте репозиторий
 ```bash
-cd src
-dotnet build -c Release
+# Создайте новый репозиторий на GitHub, затем:
+cd XNBExporterPro
+git init
+git add .
+git commit -m "Initial commit - XNB Exporter Pro v2.0"
+git branch -M main
+git remote add origin https://github.com/YOUR_USERNAME/XNBExporterPro.git
+git push -u origin main
 ```
+
+### Шаг 2: Подождите сборку
+- GitHub Actions **автоматически** скомпилирует EXE
+- Зайдите во вкладку **Actions** → увидите процесс сборки
+- После завершения скачайте готовый **XNBExporterPro.exe**
+
+### Шаг 3: Создание Release (для стабильной версии)
+```bash
+git tag v2.0.0
+git push origin v2.0.0
+```
+GitHub Actions автоматически создаст Release с EXE файлом!
 
 ---
 
@@ -62,7 +69,7 @@ dotnet build -c Release
 2. Перетащите XNB файлы/папки в окно
 3. Или: File → Open Files / Open Folder
 4. Выберите формат вывода (PNG/BMP/TGA)
-5. Нажмите "Convert All" или "Convert Selected"
+5. Нажмите "▶ Convert All" или "▷ Convert Selected"
 
 ### CLI режим
 ```bash
@@ -101,15 +108,20 @@ XNBExporterPro.exe --help
 
 ```
 XNBExporterPro/
+├── .github/
+│   └── workflows/
+│       └── build.yml        ← GitHub Actions (автосборка)
 ├── src/
-│   ├── Program.cs          — Точка входа (GUI + CLI)
-│   ├── MainForm.cs         — Главное окно GUI
-│   ├── XnbReader.cs        — Парсер XNB файлов
-│   ├── DxtDecoder.cs       — Декомпрессия DXT1/3/5
-│   ├── LzxDecompressor.cs  — LZX декомпрессия
-│   ├── ImageWriter.cs      — Запись PNG/BMP/TGA
+│   ├── Program.cs           — Точка входа (GUI + CLI)
+│   ├── MainForm.cs          — Главное окно GUI
+│   ├── XnbReader.cs         — Парсер XNB файлов
+│   ├── DxtDecoder.cs        — Декомпрессия DXT1/3/5
+│   ├── LzxDecompressor.cs   — LZX/LZ4 декомпрессия
+│   ├── ImageWriter.cs       — Запись PNG/BMP/TGA
 │   ├── XNBExporterPro.csproj
-│   └── build.bat
+│   ├── build.bat            — Локальная сборка (Windows)
+│   └── build.ps1            — Локальная сборка (PowerShell)
+├── .gitignore
 ├── XNBExporterPro.sln
 └── README.md
 ```
@@ -123,6 +135,7 @@ XNBExporterPro/
 - **Stardew Valley**
 - **Celeste**
 - **FEZ**
+- **Hacknet**
 - Любые другие XNA/MonoGame/FNA игры
 
 ---
@@ -131,5 +144,5 @@ XNBExporterPro/
 
 MIT License
 
-Основан на [XNBExporter](https://github.com/mediaexplorer74/XNBExporter) by mediaexplorer74.
+Основан на [XNBExporter](https://github.com/mediaexplorer74/XNBExporter) by mediaexplorer74.  
 LZX декомпрессор основан на MonoGame (LGPL 2.1 / MS-PL).
