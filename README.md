@@ -1,3 +1,12 @@
+the program was created using a neural network because the original program wouldn't run on my PC
+
+
+the rest was written by a neural network, I didn't read it myself, so feel free to spit on me
+
+----- 
+
+
+
 # XNB Exporter Pro v2.0
 
 **Улучшенный конвертер XNB → PNG/BMP/TGA**
